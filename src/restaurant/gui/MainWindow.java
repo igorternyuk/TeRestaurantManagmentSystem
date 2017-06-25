@@ -53,6 +53,10 @@ public class MainWindow extends javax.swing.JFrame {
         tableMeal.setAutoCreateRowSorter(true);
         tableDrinks.setRowHeight(TABLE_ROW_HEIGHT);
         tableDrinks.setAutoCreateRowSorter(true);
+        btnUpdateMeal.setEnabled(false);
+        btnUpdateDrink.setEnabled(false);
+        btnDeleteMeal.setEnabled(false);
+        btnDeleteDrink.setEnabled(false);
     }
     
     private void setIDInputsValidators(){
@@ -99,9 +103,9 @@ public class MainWindow extends javax.swing.JFrame {
     }
     
     private void loadTableDrinks(List<DrinkDTO> listDrinks){
-    tableDrinks.setModel(new TModelDrinks(listDrinks));
-    TableColumn tcd = tableDrinks.getColumnModel().getColumn(TModelDrinks.COLUMN_SERVES_NUMBER);
-    tcd.setCellEditor(new SpinnerNumericCellEditor(0, 0, 1000, 1));
+        tableDrinks.setModel(new TModelDrinks(listDrinks));
+        TableColumn tcd = tableDrinks.getColumnModel().getColumn(TModelDrinks.COLUMN_SERVES_NUMBER);
+        tcd.setCellEditor(new SpinnerNumericCellEditor(0, 0, 1000, 1));
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -648,6 +652,9 @@ public class MainWindow extends javax.swing.JFrame {
             checkBoxIsMealVegetarian.setSelected(selMeal.isVegetarian());
             checkBoxIsMealTransgenic.setSelected(selMeal.isTransgenic());
             checkBoxIsMealAvailable.setSelected(selMeal.isAvailable());
+            btnInsertMeal.setEnabled(false);
+            btnUpdateMeal.setEnabled(true);
+            btnDeleteMeal.setEnabled(true);
         }
     }//GEN-LAST:event_tableMealMouseReleased
 
@@ -661,6 +668,9 @@ public class MainWindow extends javax.swing.JFrame {
             spinnerPriceDrink.setValue(selDrink.getPrice());
             checkBoxIsDrinkAlcoholic.setSelected(selDrink.isAlcohol());
             checkBoxIsDrinkAvailable.setSelected(selDrink.isAvailable());
+            btnInsertDrink.setEnabled(false);
+            btnUpdateDrink.setEnabled(true);
+            btnDeleteDrink.setEnabled(true);
         }
     }//GEN-LAST:event_tableDrinksMouseReleased
 
@@ -682,6 +692,9 @@ public class MainWindow extends javax.swing.JFrame {
         checkBoxIsMealVegetarian.setSelected(false);
         checkBoxIsMealTransgenic.setSelected(false);
         checkBoxIsMealAvailable.setSelected(false);
+        btnInsertMeal.setEnabled(true);
+        btnUpdateMeal.setEnabled(false);
+        btnDeleteMeal.setEnabled(false);
     }
     
     private void clearMealSearchForm(){
@@ -698,6 +711,9 @@ public class MainWindow extends javax.swing.JFrame {
         spinnerPriceDrink.setValue(0.0);
         checkBoxIsDrinkAlcoholic.setSelected(false);
         checkBoxIsDrinkAvailable.setSelected(false);
+        btnInsertDrink.setEnabled(true);
+        btnUpdateDrink.setEnabled(false);
+        btnDeleteDrink.setEnabled(false);
     }
     
     private void clearDrinkSeachForm(){
@@ -737,7 +753,9 @@ public class MainWindow extends javax.swing.JFrame {
             boolean update = daoMeal.update(meal);
             if(update){
                 loadTableMeal(daoMeal.repeatLastSearch());
+                tableMeal.getSelectionModel().clearSelection();
                 clearMealInputForm();
+
             }
         }
     }//GEN-LAST:event_btnUpdateMealActionPerformed
@@ -786,8 +804,8 @@ public class MainWindow extends javax.swing.JFrame {
         List<MealDTO> list = daoMeal.readAll();
         loadTableMeal(list);
         tableMeal.getSelectionModel().clearSelection();
-        clearDrinkInputForm();
-        
+        clearMealInputForm();
+        clearMealSearchForm();
     }//GEN-LAST:event_btnResetMealSearchActionPerformed
 
     private void btnInsertDrinkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertDrinkActionPerformed
@@ -884,9 +902,10 @@ public class MainWindow extends javax.swing.JFrame {
         loadTableDrinks(daoDrink.readAll());
         tableDrinks.getSelectionModel().clearSelection();
         clearDrinkSeachForm();
+        clearDrinkInputForm();
     }//GEN-LAST:event_btnResetSearchDrinksActionPerformed
     
-    private void btnSaveReceiptToFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveReceiptToFileActionPerformed
+    private void btnSaveReceiptToFileActionPerformed(java.awt.event.ActionEvent evt) {                                                     
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
         FileNameExtensionFilter filter = new FileNameExtensionFilter("text files", "txt");
@@ -913,24 +932,8 @@ public class MainWindow extends javax.swing.JFrame {
                 "Warning",
                 JOptionPane.WARNING_MESSAGE
             );
-        }
-
-        /*  private void btnChooseImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseImgActionPerformed
-        JFileChooser file = new JFileChooser();
-        file.setCurrentDirectory(new File(System.getProperty("user.home")));
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("images", "jpg", "jpeg", "png");
-        file.addChoosableFileFilter(filter);
-        int result = file.showSaveDialog(null);
-        if (result == JFileChooser.APPROVE_OPTION) {
-            File selectedFile = file.getSelectedFile();
-            String path = selectedFile.getAbsolutePath();
-            lblImage.setIcon(getScaledImage(path, null));
-            imagePath = path;
-        } else {
-            System.out.println("No file selected");
-        }
-    }//GEN-LAST:event_btnChooseImgActionPerformed*/
-    }//GEN-LAST:event_btnSaveReceiptToFileActionPerformed
+        }                                              
+    }                                                    
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:

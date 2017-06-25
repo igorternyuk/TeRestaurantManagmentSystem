@@ -83,8 +83,6 @@ public class DBManager {
     }
     
     public void closeConnection(){
-//        cmd.close();
-//        con.close();
         instance = null;
     }
 

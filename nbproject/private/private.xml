@@ -6,21 +6,21 @@
             <file>file:/home/igor/prj/java/TeRestaurantManagmentSystem/src/restaurant/gui/validators/KeyListenerType.java</file>
             <file>file:/home/igor/prj/java/TeRestaurantManagmentSystem/src/restaurant/model/tmodels/TModelDrinks.java</file>
             <file>file:/home/igor/prj/java/TeRestaurantManagmentSystem/src/restaurant/model/dto/DrinkDTO.java</file>
+            <file>file:/home/igor/prj/java/TeRestaurantManagmentSystem/src/restaurant/model/dao/DAO.java</file>
             <file>file:/home/igor/prj/java/TeRestaurantManagmentSystem/src/restaurant/gui/celleditors/SpinnerNumericCellEditor.java</file>
             <file>file:/home/igor/prj/java/TeRestaurantManagmentSystem/src/restaurant/model/tmodels/TModelMeal.java</file>
             <file>file:/home/igor/prj/java/TeRestaurantManagmentSystem/src/restaurant/connector/config/config.dat</file>
-            <file>file:/home/igor/prj/java/TeRestaurantManagmentSystem/src/restaurant/model/DAO/DAO.java</file>
             <file>file:/home/igor/prj/java/TeRestaurantManagmentSystem/src/restaurant/model/dto/ProductDTO.java</file>
             <file>file:/home/igor/prj/java/TeRestaurantManagmentSystem/src/restaurant/exceptions/NoSuchMealException.java</file>
             <file>file:/home/igor/prj/java/TeRestaurantManagmentSystem/src/restaurant/model/MealType.java</file>
-            <file>file:/home/igor/prj/java/TeRestaurantManagmentSystem/src/restaurant/model/DAO/DrinkDAO.java</file>
             <file>file:/home/igor/prj/java/TeRestaurantManagmentSystem/src/restaurant/exceptions/NoSuchDrinkException.java</file>
+            <file>file:/home/igor/prj/java/TeRestaurantManagmentSystem/src/restaurant/model/dao/DrinkDAO.java</file>
             <file>file:/home/igor/prj/java/TeRestaurantManagmentSystem/src/restaurant/connector/DBManager.java</file>
             <file>file:/home/igor/prj/java/TeRestaurantManagmentSystem/src/restaurant/model/dto/MealDTO.java</file>
             <file>file:/home/igor/prj/java/TeRestaurantManagmentSystem/src/restaurant/connector/db_restaurant.sql</file>
             <file>file:/home/igor/prj/java/TeRestaurantManagmentSystem/src/restaurant/gui/validators/TextFieldInputValidator.java</file>
+            <file>file:/home/igor/prj/java/TeRestaurantManagmentSystem/src/restaurant/model/dao/MealDAO.java</file>
             <file>file:/home/igor/prj/java/TeRestaurantManagmentSystem/src/restaurant/gui/MainWindow.java</file>
-            <file>file:/home/igor/prj/java/TeRestaurantManagmentSystem/src/restaurant/model/DAO/MealDAO.java</file>
         </group>
     </open-files>
 </project-private>
